@@ -23,3 +23,21 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def create_user1002(db: Session, user: schemas.UserCreate1002):
+    """
+    schemas 架构 是对 请求数据和响应数据的 格式化输出
+    model 模型 用于创建数据库中的表
+    crud 数据加入数据库的逻辑
+    """
+    fake_hashed_password = user.password
+    db_user = models.User1002(
+        loginName=user.loginName,
+        displayName=user.displayName,
+        hashed_password=fake_hashed_password
+    )
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
