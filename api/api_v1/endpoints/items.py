@@ -1,5 +1,11 @@
-from fastapi import APIRouter
+from typing import List
 
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+
+import crud
+import schemas
+from api.api_v1.endpoints.users import get_db
 
 router = APIRouter()
 
@@ -9,3 +15,9 @@ router = APIRouter()
 @router.get("/{item_id}")
 async def read_item(item_id: int):
     return {"item_id": item_id}
+
+
+@router.get("/", response_model=List[schemas.Item])
+def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    items = crud.get_items(db, skip=skip, limit=limit)
+    return items
