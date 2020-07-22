@@ -2,7 +2,9 @@ from fastapi import FastAPI, Request, Response
 from api.api_v1.api import api_router
 import uvicorn
 from core.config import settings
-from db.base_class import SessionLocal
+from database import Base, engine, SessionLocal
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="myapp")
 
