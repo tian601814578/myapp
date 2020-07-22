@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 import crud
 import schemas
-from database import SessionLocal
+from core.tools import get_db
 
 router = APIRouter()
 
@@ -15,14 +15,6 @@ router = APIRouter()
 @router.get("/me")
 async def read_user_me():
     return {"user_id": "the current user"}
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 @router.post("/", response_model=schemas.User)

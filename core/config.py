@@ -3,7 +3,7 @@ from typing import Optional, Dict, Any
 
 
 class Settings(BaseSettings):
-    API_V1_STR: str = "/api/v1"
+    API_V1_STR: str = "/api/v1/sys"
 
     POSTGRES_SERVER: str = "localhost:5432"
     POSTGRES_USER: str = "postgres"

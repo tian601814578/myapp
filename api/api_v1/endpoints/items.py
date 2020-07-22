@@ -1,11 +1,9 @@
 from typing import List
-
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-
 import crud
 import schemas
-from api.api_v1.endpoints.users import get_db
+from core.tools import get_db
 
 router = APIRouter()
 
