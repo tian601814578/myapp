@@ -21,9 +21,9 @@ class User1002(Base):
     id = Column(Integer, primary_key=True, index=True)
     loginName = Column(String, unique=True, index=True)
     displayName = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
+    password = Column(String)
 
-    items = relationship("Item", back_populates="owner")
+    # items = relationship("Item", back_populates="owner")
 
 
 class Item(Base):

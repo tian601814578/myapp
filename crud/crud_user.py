@@ -35,7 +35,7 @@ def create_user1002(db: Session, user: schemas.UserCreate1002):
     db_user = models.User1002(
         loginName=user.loginName,
         displayName=user.displayName,
-        hashed_password=fake_hashed_password
+        password=fake_hashed_password
     )
     db.add(db_user)
     db.commit()
