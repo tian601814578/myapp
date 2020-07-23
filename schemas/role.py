@@ -3,10 +3,13 @@ from schemas.item import Item
 from pydantic import BaseModel
 
 
-class Role(BaseModel):
-    id: int
+class CreateRole(BaseModel):
     name: str
 
     class Config:
         orm_mode = True
 
+
+
+class Role(CreateRole):
+    id: int

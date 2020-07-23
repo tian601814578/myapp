@@ -4,7 +4,7 @@ import models
 import schemas
 
 
-def create_role(db: Session, role: schemas.Role):
+def create_role(db: Session, role: schemas.CreateRole):
     """
     创建模型--》创建 schemas 架构--》crud 构建逻辑
     """
